@@ -1,0 +1,55 @@
+ id |      first_name      |      last_name       |                job_title                 
+----+----------------------+----------------------+------------------------------------------
+  1 | John                 | Doe                  | Analyst                                 
+  2 | Bob                  | Li                   | Programmer                              
+  3 | Al                   | Caputo               | Manager                                 
+  4 | Alex                 | Searcy               | Consultant                              
+(4 rows)
+
+
+postgres@brian-VirtualBox:~$ psql
+psql (9.4.5, server 9.3.10)
+Type "help" for help.
+
+postgres=# CREATE TABLE members(ID integer,First_Name char(20),Last_Name char(20),Job_Title char(40));
+CREATE TABLE
+postgres=# INSERT INTO members VALUES(1,'John','Doe','Analyst');
+INSERT 0 1
+postgres=# INSERT INTO members VALUES(2,'Bob','Li','Programmer');
+INSERT 0 1
+postgres=# INSERT INTO members VALUES(3,'Al','Caputo','Manager');
+INSERT 0 1
+postgres=# INSERT INTO members VALUES(4,'Alex','Searcy','Consultant');
+INSERT 0 1
+postgres=# SELECT * FROM members;
+postgres=# ^C
+postgres=# \q
+postgres@brian-VirtualBox:~$ heroku pg:psql HEROKU_POSTGRESQL_XXXXX
+Installing Heroku Toolbelt v4... done.
+For more information on Toolbelt v4: https://github.com/heroku/heroku-cli
+Setting up node-v4.2.1... done
+Installing core plugins heroku-cli-addons, heroku-apps, heroku-fork, heroku-git, heroku-local, heroku-run, heroku-status... done
+Enter your Heroku credentials.
+Email: brianr852@gmail.com
+Password (typing will be hidden): 
+ !    No app specified.
+ !    Run this command from an app folder or specify which app to use with --app APP.
+postgres@brian-VirtualBox:~$ heroku-postgres-0a3e9962 :: aqua
+heroku-postgres-0a3e9962: command not found
+postgres@brian-VirtualBox:~$ heroku pg:psql --app heroku-postgres-0a3e9962 HEROKU_POSTGRESQL_AQUA
+---> Connecting to HEROKU_POSTGRESQL_AQUA_URL
+psql (9.4.5, server 9.4.4)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+heroku-postgres-0a3e9962::AQUA=> CREATE TABLE members(ID integer, First_Name char(20), Last_Name char(20), Job_Title char(40));
+CREATE TABLE
+heroku-postgres-0a3e9962::AQUA=> INSERT INTO members VALUES (1,'John','Doe','Analyst');
+INSERT 0 1
+heroku-postgres-0a3e9962::AQUA=> INSERT INTO members VALUES (2,'Bob','Li','Programmer');
+INSERT 0 1
+heroku-postgres-0a3e9962::AQUA=> INSERT INTO members VALUES (3,'Al','Caputo','Manager');INSERT 0 1
+heroku-postgres-0a3e9962::AQUA=> INSERT INTO members VALUES (4,'Alex','Searcy','Consultant');
+INSERT 0 1
+heroku-postgres-0a3e9962::AQUA=> SELECT * FROM members;
+heroku-postgres-0a3e9962::AQUA=> 

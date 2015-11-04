@@ -1,0 +1,26 @@
+bundle install
+ rake db:create
+ rails server
+ rails generate scaffold Post title:string body:text
+rake db:migrate
+rake db:create
+bundle install
+rails generate scaffold Post title:string body:text
+rake db:migrate
+rails server
+git init
+git add .
+git commit -m ""
+git remote add origin https://github.com/brianr852/inclass4.git
+ git push -u origin master
+ heroku create
+git remote -v
+ git push heroku master
+ heroku open
+ heroku run rake db:setup
+heroku run rake db:migrate
+url /posthttps://calm-shelf-7078.herokuapp.com/posts
+
+ sudo apt-get install gparted
+sudo gparted
+
